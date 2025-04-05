@@ -1,0 +1,36 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 3
+
+[transient_prompt]
+newline = true
+background = "transparent"
+foreground = "#ffffff"
+template = "❯ "
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+    [[blocks.segments]]
+    template = "  {{ path .Path .Location }} "
+    type = "path"
+    style = "powerline"
+    powerline_symbol = ""
+    foreground = "#ffffff"
+    background = "#61AFEF"
+
+        [blocks.segments.properties]
+        style = "full"
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+    [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    background = "transparent"
+    template = "❯"
