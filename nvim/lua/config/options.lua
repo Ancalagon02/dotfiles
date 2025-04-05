@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 opt.number = true
+opt.autoread = true
 opt.expandtab = true
 opt.tabstop = 4
 opt.softtabstop = 4
