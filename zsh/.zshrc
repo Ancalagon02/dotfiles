@@ -10,8 +10,6 @@ alias dotfiles="cd /mnt/devops/dotfiles"
 alias games="cd /mnt/games"
 alias nas="cd /mnt/nas"
 
-export EDITOR="nvim"
-
 source <(fzf --zsh)
 
 eval "$(oh-my-posh init zsh)"
