@@ -1,0 +1,19 @@
+local opt = vim.opt
+
+opt.number = true
+opt.expandtab = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.relativenumber = true
+opt.clipboard = "unnamedplus"
+opt.virtualedit = "block"
+opt.wrap = false
+opt.scrolloff = 25
+opt.termguicolors = true
+opt.backup = false
+opt.conceallevel = 0
+opt.swapfile = false
+opt.smartindent = true
+opt.undofile = true
+opt.signcolumn = "yes"
