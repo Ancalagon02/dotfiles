@@ -1,6 +1,7 @@
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
 final_space = true
 version = 3
+enable_cursor_positioning = true
 
 [transient_prompt]
 newline = true
@@ -62,22 +63,11 @@ alignment = "right"
     style = "plain"
     background = "transparent"
     foreground = "p:blue"
-    template = ""
+    template = "  "
 
         [blocks.segments.properties]
         display_mode = 'files'
         fetch_version = false
-
-    [[blocks.segments]]
-    type = "time"
-    style = "plain"
-
-        [blocks.segments.properties]
-        time_format = "_2-Jan-2006 3:04PM"
-
-
-[[blocks]]
-type = "rprompt"
 
     [[blocks.segments]]
     type = "executiontime"
@@ -88,6 +78,16 @@ type = "rprompt"
         [blocks.segments.properties]
         style = "austin"
         threshold = 1000
+
+[[blocks]]
+type = "rprompt"
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+
+        [blocks.segments.properties]
+        time_format = "_2-Jan-2006 3:04PM"
 
 [[blocks]]
 type = "prompt"
@@ -103,4 +103,3 @@ newline = true
     ]
     background = "transparent"
     template = "❯"
-

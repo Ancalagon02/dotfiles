@@ -3,3 +3,6 @@ font-family = Meslo LGS Nerd Font
 font-size = 16
 background-opacity = 0.95
 gtk-titlebar = false
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true

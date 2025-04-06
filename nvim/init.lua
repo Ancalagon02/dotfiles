@@ -16,6 +16,8 @@ vim.lsp.config('*', {
 vim.lsp.enable({
   "lua_ls",
   "bash",
+  "css",
+  "json",
 })
 
 -- Toggle virtual text
