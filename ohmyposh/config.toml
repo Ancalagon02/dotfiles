@@ -12,7 +12,7 @@ template = "❯ "
 red = "#FF0000"
 green = "#00FF00"
 white = "#FFFFFF"
-black = "000000"
+black = "#000000"
 blue = "#0000FF"
 yellow = "#FFFF00"
 
@@ -22,10 +22,17 @@ alignment = "left"
 newline = true
 
     [[blocks.segments]]
+    style = "plain"
+    type = "os"
+    background = "transparent"
+    foreground = "p:white"
+
+    [[blocks.segments]]
     template = "  {{ path .Path .Location }} "
     type = "path"
-    style = "powerline"
-    powerline_symbol = ""
+    style = "diamond"
+    leading_diamond = "<transparent>"
+    trailing_diamond = ""
     foreground = "p:white"
     background = "p:blue"
 
@@ -48,6 +55,42 @@ newline = true
 
 [[blocks]]
 type = "prompt"
+alignment = "right"
+
+    [[blocks.segments]]
+    type = "lua"
+    style = "plain"
+    background = "transparent"
+    foreground = "p:blue"
+    template = ""
+
+        [blocks.segments.properties]
+        display_mode = 'files'
+        fetch_version = false
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+
+        [blocks.segments.properties]
+        time_format = "_2-Jan-2006 3:04PM"
+
+
+[[blocks]]
+type = "rprompt"
+
+    [[blocks.segments]]
+    type = "executiontime"
+    style = "plain"
+    foreground = "p:white"
+    template = " {{ .FormattedMs }} "
+
+        [blocks.segments.properties]
+        style = "austin"
+        threshold = 1000
+
+[[blocks]]
+type = "prompt"
 alignment = "left"
 newline = true
 
@@ -60,3 +103,4 @@ newline = true
     ]
     background = "transparent"
     template = "❯"
+
