@@ -39,8 +39,12 @@ newline = true
     powerline_symbol = ""
     foreground = "p:black"
     background = "p:yellow"
-    template = "{{ .UpstreamIcon }} {{ .HEAD }}"
-    
+    template = " {{ .UpstreamIcon }} {{ .HEAD }} {{if .Working.Changed }} {{.Working.String }}{{ end }} {{if .Staging.Changed }} {{ .Staging.String }}{{ end }}"
+
+        [blocks.segments.properties]
+        branch_icon =""
+        fetch_status = true
+        fetch_upstream_icon = true
 
 [[blocks]]
 type = "prompt"
