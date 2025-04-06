@@ -5,8 +5,16 @@ version = 3
 [transient_prompt]
 newline = true
 background = "transparent"
-foreground = "#ffffff"
+foreground = "p:white"
 template = "❯ "
+
+[palette]
+red = "#FF0000"
+green = "#00FF00"
+white = "#FFFFFF"
+black = "000000"
+blue = "#0000FF"
+yellow = "#FFFF00"
 
 [[blocks]]
 type = "prompt"
@@ -18,11 +26,21 @@ newline = true
     type = "path"
     style = "powerline"
     powerline_symbol = ""
-    foreground = "#ffffff"
-    background = "#61AFEF"
+    foreground = "p:white"
+    background = "p:blue"
 
         [blocks.segments.properties]
-        style = "full"
+        max_depth = 3
+        style = "agnoster_short"
+
+    [[blocks.segments]]
+    type = "git"
+    style = "powerline"
+    powerline_symbol = ""
+    foreground = "p:black"
+    background = "p:yellow"
+    template = "{{ .UpstreamIcon }} {{ .HEAD }}"
+    
 
 [[blocks]]
 type = "prompt"
@@ -32,5 +50,9 @@ newline = true
     [[blocks.segments]]
     type = "text"
     style = "plain"
+    foreground_templates = [
+        "{{ if gt .Code 0 }}p:red{{end}}",
+        "{{ if eq .Code 0 }}p:green{{end}}",
+    ]
     background = "transparent"
     template = "❯"

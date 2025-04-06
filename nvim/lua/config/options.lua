@@ -16,5 +16,6 @@ opt.backup = false
 opt.conceallevel = 0
 opt.swapfile = false
 opt.smartindent = true
+opt.autoindent = true
 opt.undofile = true
 opt.signcolumn = "yes"
