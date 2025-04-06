@@ -39,7 +39,7 @@ newline = true
     powerline_symbol = ""
     foreground = "p:black"
     background = "p:yellow"
-    template = " {{ .UpstreamIcon }} {{ .HEAD }} {{if .Working.Changed }} {{.Working.String }}{{ end }} {{if .Staging.Changed }} {{ .Staging.String }}{{ end }}"
+    template = " {{ .UpstreamIcon }} {{ .HEAD }}{{if .Working.Changed }} {{.Working.String }}{{ end }} {{if .Staging.Changed }} {{ .Staging.String }}{{ end }}"
 
         [blocks.segments.properties]
         branch_icon =""
