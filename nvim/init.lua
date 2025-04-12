@@ -23,6 +23,15 @@ vim.lsp.enable({
   "markdown",
 })
 
+vim.filetype.add({
+  filename = {
+    ["docker-compose.yml"] = "yaml.docker-compose",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+    ["compose.yml"] = "yaml.docker-compose",
+    ["compose.yaml"] = "yaml.docker-compose",
+  },
+})
+
 -- Toggle virtual text
 vim.diagnostic.config({ virtual_text = { current_line = true } })
 vim.keymap.set('n', '<leader>tt', function()
