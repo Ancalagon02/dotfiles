@@ -6,7 +6,7 @@ return {
       indent = { enable = true },
       auto_install = false,
       hightlight = { enable = true, additional_vim_regex_highlighting = true },
-      ensure_installed = { "vim", "markdown", "bash", "lua", "toml", "json", "css", "xml", "jsonc" }
+      ensure_installed = { "vim", "markdown", "bash", "lua", "toml", "json", "css", "xml", "jsonc", "dockerfile" }
     })
   end
 }

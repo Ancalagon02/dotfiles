@@ -18,6 +18,9 @@ vim.lsp.enable({
   "bash",
   "css",
   "json",
+  "docker",
+  "compose",
+  "markdown",
 })
 
 -- Toggle virtual text
