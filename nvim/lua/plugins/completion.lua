@@ -8,7 +8,7 @@ return {
       preset = 'default',
       ["<C-p>"] = { "select_prev", "fallback" },
       ["<C-n>"] = { "select_next", "fallback" },
-      ["<cr>"] = { "select_and_accept", "fallback" },
+      ["<C-y>"] = { "select_and_accept", "fallback" },
       ['<Tab>'] = { 'snippet_forward', 'fallback' },
       ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
       ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },

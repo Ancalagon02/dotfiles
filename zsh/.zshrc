@@ -9,6 +9,7 @@ alias vim="nvim"
 alias dotfiles="cd /mnt/devops/dotfiles"
 alias games="cd /mnt/games"
 alias nas="cd /mnt/nas"
+alias devops="cd /mnt/devops/"
 
 source <(fzf --zsh)
 
