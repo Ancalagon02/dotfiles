@@ -10,6 +10,7 @@ alias dotfiles="cd /mnt/devops/dotfiles"
 alias games="cd /mnt/games"
 alias nas="cd /mnt/nas"
 alias devops="cd /mnt/devops/"
+alias course="cd /mnt/devops/Udemy/"
 
 source <(fzf --zsh)
 

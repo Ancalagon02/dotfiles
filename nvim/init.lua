@@ -21,6 +21,7 @@ vim.lsp.enable({
   "docker",
   "compose",
   "markdown",
+  "go",
 })
 
 vim.filetype.add({
