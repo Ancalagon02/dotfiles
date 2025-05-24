@@ -7,6 +7,9 @@ return {
 				lua = { "stylua" },
 				go = { "gofmt" },
 			},
+			vim.keymap.set("n", "<leader>e", function()
+				require("conform").format({ bufnr = 0 })
+			end, { desc = "Code Format [conform]" }),
 		})
 	end,
 }

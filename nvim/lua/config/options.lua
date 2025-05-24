@@ -19,3 +19,5 @@ opt.smartindent = true
 opt.autoindent = true
 opt.undofile = true
 opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true

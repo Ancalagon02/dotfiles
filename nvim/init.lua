@@ -33,8 +33,6 @@ vim.filetype.add({
 	},
 })
 
--- Toggle virtual text
-vim.diagnostic.config({ virtual_text = { current_line = true } })
 vim.keymap.set("n", "<leader>tt", function()
 	local config = vim.diagnostic.config()
 	if config ~= nil then
@@ -44,7 +42,7 @@ vim.keymap.set("n", "<leader>tt", function()
 			vim.diagnostic.config({ virtual_text = false })
 		end
 	end
-end)
+end, {desc = "Toggle Virtual Text"})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -68,3 +66,15 @@ require("lazy").setup({
 })
 
 vim.cmd.colorscheme("catppuccin")
+
+vim.api.nvim_create_augroup('VerticalHelp', { clear = true })
+
+-- Define the autocommand: when FileType becomes 'help', move the window to the right
+vim.api.nvim_create_autocmd('FileType', {
+    group = 'VerticalHelp', -- Assign to our named group
+    pattern = 'help',       -- Trigger when the filetype is 'help'
+    callback = function()
+        vim.cmd('wincmd L') -- Execute 'wincmd L' to move the window to the far right
+    end,
+    desc = 'Move help window to the far right upon opening'
+})
