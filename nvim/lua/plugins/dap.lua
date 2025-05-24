@@ -13,7 +13,19 @@ return {
 			local widgets = require("dap.ui.widgets")
 
 			require("dapui").setup()
-			require("dap-go").setup()
+			require("dap-go").setup({
+
+      dap_configurations = {
+        {
+          -- Must be "go" or it will be ignored by the plugin
+          type = "go",
+          name = "Attach remote",
+          mode = "remote",
+          request = "attach",
+        },
+      },
+      })
+
 
 			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint [DAP]" })
 			vim.keymap.set("n", "<leader>dg", dap.run_to_cursor, {desc = "Run to cursor [DAP]" })
