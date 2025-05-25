@@ -33,6 +33,7 @@ vim.filetype.add({
 	},
 })
 
+vim.diagnostic.config({ virtual_text = { current_line = true } })
 vim.keymap.set("n", "<leader>tt", function()
 	local config = vim.diagnostic.config()
 	if config ~= nil then

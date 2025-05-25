@@ -15,24 +15,24 @@ return {
 			require("dapui").setup()
 			require("dap-go").setup({
 
-      dap_configurations = {
-        {
-          -- Must be "go" or it will be ignored by the plugin
-          type = "go",
-          name = "Attach remote",
-          mode = "remote",
-          request = "attach",
-        },
-      },
-      })
-
+				dap_configurations = {
+					{
+						-- Must be "go" or it will be ignored by the plugin
+						type = "go",
+						name = "Attach remote",
+						mode = "remote",
+						request = "attach",
+					},
+				},
+			})
 
 			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint [DAP]" })
-			vim.keymap.set("n", "<leader>dg", dap.run_to_cursor, {desc = "Run to cursor [DAP]" })
+			vim.keymap.set("n", "<leader>dg", dap.run_to_cursor, { desc = "Run to cursor [DAP]" })
 
 			-- Eval var under cursor
-			vim.keymap.set("n", "<leader>?", function() ui.eval(nil, { enter = true }) end,
-        { desc = "Debug Eval under cursor [DAP]" })
+			vim.keymap.set("n", "<leader>?", function()
+				ui.eval(nil, { enter = true })
+			end, { desc = "Debug Eval under cursor [DAP]" })
 			vim.keymap.set("n", "<F1>", dap.continue)
 			vim.keymap.set("n", "<F2>", dap.step_into)
 			vim.keymap.set("n", "<F3>", dap.step_over)

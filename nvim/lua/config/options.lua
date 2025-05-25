@@ -21,3 +21,4 @@ opt.undofile = true
 opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
+opt.spell = false

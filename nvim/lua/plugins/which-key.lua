@@ -9,6 +9,7 @@ return {
       { "<leader>c", group = "Comments" },
       { "<leader>e", group = "Edit" },
       { "<leader>w", group = "Window" },
+      { "<leader>x", group = "Trouble" },
 		})
 	end,
 }

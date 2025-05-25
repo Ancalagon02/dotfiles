@@ -13,8 +13,16 @@ return {
 					i = {
 						["<C-j>"] = "move_selection_next",
 						["<C-k>"] = "move_selection_previous",
-					},
-				},
+            ['<C-q>'] = function(prompt_bufnr)
+              require('telescope.actions').send_to_qflist(prompt_bufnr) -- Pass prompt_bufnr
+              vim.cmd('cclose')
+            end,
+            ['<M-q>'] = function(prompt_bufnr)
+              require('telescope.actions').send_selected_to_qflist(prompt_bufnr) -- Pass prompt_bufnr
+              vim.cmd('cclose')
+            end,
+          },
+        },
 			},
 			pickers = {
 				find_files = {
@@ -29,5 +37,6 @@ return {
 		telescope.load_extension("fzf")
 
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+
 	end,
 }

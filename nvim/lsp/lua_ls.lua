@@ -15,6 +15,9 @@ return {
 				library = vim.api.nvim_get_runtime_file("", true), -- Include Neovim runtime files
 				checkThirdParty = false, -- Avoid prompts for third-party libraries
 			},
+      hint = {
+        enable = true,
+      },
 		},
 	},
 }
