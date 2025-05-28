@@ -1,7 +1,7 @@
 return {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
-	root_markers = { "init.lua", ".luarc.json" },
+	root_markers = { "init.lua", ".luarc.json", ".git" },
 	settings = {
 		Lua = {
 			runtime = {

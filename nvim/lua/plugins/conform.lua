@@ -6,6 +6,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "gofmt" },
+        python = { "black" },
 			},
 			vim.keymap.set("n", "<leader>e", function()
 				require("conform").format({ bufnr = 0 })

@@ -68,6 +68,29 @@ alignment = "right"
         [blocks.segments.properties]
         display_mode = 'files'
         fetch_version = false
+    
+    [[blocks.segments]]
+    type = "go"
+    style = "plain"
+    background = "transparent"
+    foreground = "p:blue"
+    template = "  "
+
+        [blocks.segments.properties]
+        display_mode = 'files'
+        fetch_version = false
+    
+    [[blocks.segments]]
+    type = "python"
+    style = "plain"
+    background = "transparent"
+    foreground = "p:yellow"
+    template = "  {{ if .Venv }} {{ .Venv }}{{ end }}"
+
+        [blocks.segments.properties]
+        display_mode = "context"
+        fetch_version = false
+        fetch_virtual_env = true
 
     [[blocks.segments]]
     type = "executiontime"

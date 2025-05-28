@@ -13,6 +13,7 @@ return {
 				"dockerls",
 				"marksman",
 				"gopls",
+        "basedpyright",
 			},
 		})
 	end,
