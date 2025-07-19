@@ -10,6 +10,7 @@ return {
       { "<leader>e", group = "Edit" },
       { "<leader>w", group = "Window" },
       { "<leader>x", group = "Trouble" },
+      { "<leader>p", group = "Copilot" },
 		})
 	end,
 }
