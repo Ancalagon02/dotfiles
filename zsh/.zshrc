@@ -17,13 +17,5 @@ export MANPAGER="nvim +Man!"
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
+export PATH=$PATH:$HOME/.local/opt/go/bin
 export PATH=$PATH:$HOME/go/bin
-
-. "$HOME/.local/bin/env"
