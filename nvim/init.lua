@@ -22,7 +22,9 @@ vim.lsp.enable({
 	"compose",
 	"markdown",
 	"go",
-  "python"
+  "python",
+  "c",
+  "html",
 })
 
 vim.filetype.add({
