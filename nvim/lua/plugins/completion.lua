@@ -3,7 +3,7 @@ return {
 	dependencies = {
     "rafamadriz/friendly-snippets",
     "folke/lazydev.nvim",
-    "MahanRahmati/blink-nerdfont.nvim",
+    --"MahanRahmati/blink-nerdfont.nvim",
   },
 	version = "v0.*",
   config = function()
@@ -76,7 +76,7 @@ return {
         nerd_font_variant = "normal",
       },
       sources = {
-        default = { "lazydev", "lsp", "path", "snippets", "buffer", "nerdfont", },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer", },
         providers = {
           lazydev = {
             name = "LazyDev",
@@ -84,12 +84,12 @@ return {
             -- Make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
           },
-          nerdfont = {
-            module = "blink-nerdfont",
-            name = "Nerd Fonts",
-            score_offset = 15, -- Tune by preference
-            opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
-          },
+          -- nerdfont = {
+          --   module = "blink-nerdfont",
+          --   name = "Nerd Fonts",
+          --   score_offset = 15, -- Tune by preference
+          --   opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
+          -- },
           lsp = {
             min_keyword_length = 0, -- Number of characters to trigger provider
             score_offset = 0, -- Boost/penalize the score of the items
