@@ -20,7 +20,6 @@ return {
 				"go",
         "python",
         "c",
-        "css",
         "html",
 			},
 			highlight = { enable = true, additional_vim_regex_highlighting = true },

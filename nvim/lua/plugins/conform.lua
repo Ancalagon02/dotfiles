@@ -6,11 +6,13 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "gofmt" },
-        python = { "black" },
+				python = { "black" },
 			},
-			vim.keymap.set("n", "<leader>e", function()
-				require("conform").format({ bufnr = 0 })
-			end, { desc = "Code Format [conform]" }),
 		})
+
+		-- Move keymap outside setup()
+		vim.keymap.set("n", "<leader>e", function()
+			require("conform").format({ bufnr = 0 })
+		end, { desc = "Code Format [conform]" })
 	end,
 }

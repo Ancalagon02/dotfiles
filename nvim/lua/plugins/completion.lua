@@ -20,8 +20,6 @@ return {
     local function tab_action(cmp_instance)
       if cmp_instance.snippet_active() then
         return cmp_instance.accept()
-      else
-        return cmp_instance.accept()
       end
     end
 

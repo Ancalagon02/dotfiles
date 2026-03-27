@@ -1,6 +1,6 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
-	main = "libl",
+	main = "ibl",
 	config = function()
 		require("ibl").setup({
 			scope = { enabled = true },
