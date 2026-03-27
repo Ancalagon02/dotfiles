@@ -18,9 +18,10 @@ return {
     end
 
     local function tab_action(cmp_instance)
-      if cmp_instance.snippet_active() then
+      if cmp_instance.is_visible() then
         return cmp_instance.accept()
       end
+      return false
     end
 
     blink.setup({
