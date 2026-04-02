@@ -42,8 +42,8 @@ autocmd("LspAttach", {
   end
 })
 
-map("n", "<C-]>", "<cmd>cnext<cr>", { noremap = false, remap = true, silent = true, desc = "Quiclist next" })
-map("n", "<C-[>", "<cmd>cprev<cr>", { noremap = false, remap = true, silent = true, desc = "Quiclist prev" })
+--map("n", "<C-]>", "<cmd>cnext<cr>", { noremap = false, remap = true, silent = true, desc = "Quiclist next" })
+--map("n", "<C-[>", "<cmd>cprev<cr>", { noremap = false, remap = true, silent = true, desc = "Quiclist prev" })
 map("n", "<leader>xq", function() vim.fn.setqflist({}) end, { noremap = false, remap = true, silent = true, desc = "Clear Quicklist" })
 
 map("n", "<leader>cl", "gcc", { noremap = false, remap = true, desc = "Toggle Comments" })
