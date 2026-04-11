@@ -1,6 +1,6 @@
 theme = Catppuccin Mocha
 font-family = Meslo LGS Nerd Font
-font-size = 16
+font-size = 18
 background-opacity = 0.95
 gtk-titlebar = false
 window-padding-x = 5
