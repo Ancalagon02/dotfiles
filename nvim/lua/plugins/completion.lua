@@ -91,7 +91,7 @@ return {
 					-- },
 					lsp = {
 						min_keyword_length = 0, -- Number of characters to trigger provider
-						score_offset = 0, -- Boost/penalize the score of the items
+						score_offset = 50, -- Boost/penalize the score of the items
 					},
 					path = {
 						min_keyword_length = 0,
@@ -100,7 +100,7 @@ return {
 						min_keyword_length = 2,
 						name = "snippets",
 						module = "blink.cmp.sources.snippets",
-						score_offset = 80,
+						score_offset = 40,
 						opts = {
 							-- Tell blink where to find your custom VSCode-style snippets
 							search_paths = { vim.fn.stdpath("config") .. "/snippets/" },

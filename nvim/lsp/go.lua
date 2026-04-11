@@ -15,6 +15,12 @@ return {
 				rangeVariableTypes = true,
 			},
 			completeUnimported = true,
+			codelenses = {
+				test = true,
+				tidy = true,
+				upgrade_dependency = true,
+				vendor = true,
+			},
 		},
 	},
 }
