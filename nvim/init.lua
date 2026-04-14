@@ -16,4 +16,3 @@ vim.filetype.add({
 })
 
 
-vim.cmd.colorscheme("catppuccin")

@@ -1,19 +1,32 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.linebreak = true
+-- 2. Moving around, searching and patterns
 vim.opt.scrolloff = 10
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.undofile = true
-vim.opt.signcolumn = "yes:1"
+
+-- 4. Displaying text
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false -- Set to true if you want linebreak to function
+vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+-- 5. Syntax, highlighting and spelling
 vim.opt.termguicolors = true
-vim.opt.swapfile = false
+
+-- 11. Messages and info
+vim.opt.signcolumn = "yes:1"
+
+-- 13. Editing text
+vim.opt.undofile = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = { "menu", "noselect", "popup", "menuone" }
+
+-- 14. Tabs and indenting
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "menu", "noselect", "popup", "menuone" }
-vim.opt.wrap = false
+
+-- 18. Reading and writing files
+vim.opt.swapfile = false
