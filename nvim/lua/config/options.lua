@@ -16,3 +16,4 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menu", "noselect", "popup", "menuone" }
+vim.opt.wrap = false
