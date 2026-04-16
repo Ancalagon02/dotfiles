@@ -20,7 +20,7 @@ vim.opt.signcolumn = "yes:1"
 -- 13. Editing text
 vim.opt.undofile = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "menu", "noselect", "popup", "menuone" }
+vim.opt.completeopt = { "fuzzy", "noinsert", "noselect", "popup", "menuone" }
 
 -- 14. Tabs and indenting
 vim.opt.tabstop = 4
