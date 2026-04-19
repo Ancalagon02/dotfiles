@@ -1,3 +1,7 @@
+require("vim._core.ui2").enable()
+
+vim.lsp.document_color.enable(true, nil, { style = "virtual" })
+
 -- 2. Moving around, searching and patterns
 vim.opt.scrolloff = 10
 vim.opt.ignorecase = true
@@ -22,7 +26,7 @@ vim.opt.signcolumn = "yes:1"
 -- 13. Editing text
 vim.opt.undofile = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "fuzzy", "noinsert", "noselect", "popup", "menuone", "menu"}
+vim.opt.completeopt = { "fuzzy", "noinsert", "noselect", "popup", "menuone"}
 
 -- 14. Tabs and indenting
 vim.opt.tabstop = 4

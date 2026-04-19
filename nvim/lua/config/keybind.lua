@@ -1,19 +1,20 @@
 -- Local helper function for consistent keymapping
-local function map(mode, lhs, rhs, desc, expr, bufnr)
-  vim.keymap.set(mode, lhs, rhs, {
-    noremap = true,
-    silent = true,
-    desc = desc,
-    expr = expr or false,
-    buffer = bufnr, -- Sets the mapping for the specific LSP buffer only
-  })
+local function map(mode, lhs, rhs, desc, expr, bufnr, remap)
+	vim.keymap.set(mode, lhs, rhs, {
+		noremap = true,
+		remap = remap,
+		silent = true,
+		desc = desc,
+		expr = expr or false,
+		buffer = bufnr, -- Sets the mapping for the specific LSP buffer only
+	})
 end
 
 local smart_format = require("config.global").smart_format
 
 --- General Keymaps (Global) ---
 map("n", "<leader>to", ":split | terminal<CR>", "open terminal")
-map('t', '<esc>', '<C-\\><C-n>', "close terminal")
+map("t", "<esc>", "<C-\\><C-n>", "close terminal")
 
 map("v", "J", ":m '>+1<CR>gv=gv", "moves lines down in visual selection")
 map("v", "K", ":m '<-2<CR>gv=gv", "moves lines up in visual selection")
@@ -22,14 +23,14 @@ map("n", "<esc>", "<cmd>nohlsearch<CR>", "Clear search highlights")
 map("n", "<C-c>", "<cmd>nohlsearch<CR>", "Clear search highlights")
 
 --- Telescope General Keymaps ---
-local telescope = require('telescope.builtin')
+local telescope = require("telescope.builtin")
 map("n", "<leader>ff", telescope.find_files, "Telescope find files")
 map("n", "<leader>fg", telescope.live_grep, "Telescope live grep")
 map("n", "<leader>fb", telescope.buffers, "Telescope buffers")
 map("n", "<leader>fh", telescope.help_tags, "Telescope help tags")
 
-map("n", "<leader>cl", "gcc", "Toggle Comments")
-map({ "n", "v" }, "<leader>cc", "gc", "Toggle Comments lines")
+map("n", "<leader>cl", "gcc", "Toggle Comments", false, nil, true)
+map({ "n", "v" }, "<leader>cc", "gc", "Toggle Comments lines", false, nil, true)
 
 --- Window Management
 map("n", "<leader>ws", "<cmd>vsplit<cr><esc>", "Open Window")
@@ -57,67 +58,68 @@ map("n", "N", "Nzzzv", "Prev search result centered")
 map("v", "<", "<gv", "Indent left")
 map("v", ">", ">gv", "Indent right")
 
+map("n", "<leader>vf", smart_format, "Format Code")
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(e)
-    local bufnr = e.buf
-    local ts = require('telescope.builtin')
+	callback = function(e)
+		local bufnr = e.buf
+		local ts = require("telescope.builtin")
 
-    --- 1. NAVIGATION (LSP) ---
-    map("n", "K", vim.lsp.buf.hover, "Hover Information", false, bufnr)
-    map("n", "<leader>vg", ts.lsp_definitions, "Go to Definition", false, bufnr)
-    map("n", "<leader>vD", vim.lsp.buf.declaration, "Go to Declaration", false, bufnr)
-    map("n", "<leader>vi", ts.lsp_implementations, "Go to Implementation", false, bufnr)
-    map("n", "<leader>vr", ts.lsp_references, "Show References", false, bufnr)
-    map("n", "<leader>vt", ts.lsp_type_definitions, "Show Type Definitions", false, bufnr)
-    map("n", "<leader>vs", ts.lsp_document_symbols, "Document Symbols (List)", false, bufnr)
-    map("n", "<leader>vS", ts.lsp_dynamic_workspace_symbols, "Workspace Symbols (Search)", false, bufnr)
+		--- 1. NAVIGATION (LSP) ---
+		map("n", "K", vim.lsp.buf.hover, "Hover Information", false, bufnr)
+		map("n", "<leader>vg", ts.lsp_definitions, "Go to Definition", false, bufnr)
+		map("n", "<leader>vD", vim.lsp.buf.declaration, "Go to Declaration", false, bufnr)
+		map("n", "<leader>vi", ts.lsp_implementations, "Go to Implementation", false, bufnr)
+		map("n", "<leader>vr", ts.lsp_references, "Show References", false, bufnr)
+		map("n", "<leader>vt", ts.lsp_type_definitions, "Show Type Definitions", false, bufnr)
+		map("n", "<leader>vs", ts.lsp_document_symbols, "Document Symbols (List)", false, bufnr)
+		map("n", "<leader>vS", ts.lsp_dynamic_workspace_symbols, "Workspace Symbols (Search)", false, bufnr)
 
-    --- 2. MODIFICATION (LSP) ---
-    map("n", "<leader>vn", vim.lsp.buf.rename, "Rename Symbol", false, bufnr)
-    map({ "n", "v" }, "<leader>va", vim.lsp.buf.code_action, "Code Action", false, bufnr)
-    map("n", "<leader>vf", smart_format, "Format Code", false, bufnr)
+		--- 2. MODIFICATION (LSP) ---
+		map("n", "<leader>vn", vim.lsp.buf.rename, "Rename Symbol", false, bufnr)
+		map({ "n", "v" }, "<leader>va", vim.lsp.buf.code_action, "Code Action", false, bufnr)
 
-    --- 3. DIAGNOSTICS (Core) ---
-    map("n", "<leader>dd", vim.diagnostic.open_float, "Line Diagnostics (Float)", false, bufnr)
-    map("n", "<leader>db", function() ts.diagnostics({ bufnr = 0 }) end, "File Diagnostics (List)", false, bufnr)
-    -- Quick Jump Diagnostics
-    map("n", "<leader>dn", function()
-      vim.diagnostic.jump({ count = 1, float = true })
-    end, "Next Diagnostic", false, bufnr)
-    map("n", "<leader>dp", function()
-      vim.diagnostic.jump({ count = -1, float = true })
-    end, "Previous Diagnostic", false, bufnr)
+		--- 3. DIAGNOSTICS (Core) ---
+		map("n", "<leader>dd", vim.diagnostic.open_float, "Line Diagnostics (Float)", false, bufnr)
+		map("n", "<leader>db", function()
+			ts.diagnostics({ bufnr = 0 })
+		end, "File Diagnostics (List)", false, bufnr)
+		-- Quick Jump Diagnostics
+		map("n", "<leader>dn", function()
+			vim.diagnostic.jump({ count = 1, float = true })
+		end, "Next Diagnostic", false, bufnr)
+		map("n", "<leader>dp", function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end, "Previous Diagnostic", false, bufnr)
 
+		-- Diagnostic UI Toggle
+		map("n", "<leader>tt", function()
+			local current = vim.diagnostic.config().virtual_text
+			vim.diagnostic.config({ virtual_text = not current and { current_line = true } or false })
+		end, "Toggle Virtual Text", false, bufnr)
 
-    -- Diagnostic UI Toggle
-    map("n", "<leader>tt", function()
-      local current = vim.diagnostic.config().virtual_text
-      vim.diagnostic.config({ virtual_text = not current and { current_line = true } or false })
-    end, "Toggle Virtual Text", false, bufnr)
+		--- 4. UI & HINTS (LSP) ---
+		map("n", "<leader>vh", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end, "Toggle Inlay Hints", false, bufnr)
 
-    --- 4. UI & HINTS (LSP) ---
-    map("n", "<leader>vh", function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, "Toggle Inlay Hints", false, bufnr)
+		map("i", "<C-h>", vim.lsp.buf.signature_help, "Signature Help", false, bufnr)
 
-    map("i", "<C-h>", vim.lsp.buf.signature_help, "Signature Help", false, bufnr)
+		--- 5. COMPLETION (Scoped to buffer) ---
+		-- Note: Uses 'expr = true' for the ternary logic
+		map("i", "<C-j>", function()
+			return vim.fn.pumvisible() == 1 and "<C-n>" or "<C-j>"
+		end, "Next completion item", true, bufnr)
 
-    --- 5. COMPLETION (Scoped to buffer) ---
-    -- Note: Uses 'expr = true' for the ternary logic
-    map("i", "<C-j>", function()
-      return vim.fn.pumvisible() == 1 and "<C-n>" or "<C-j>"
-    end, "Next completion item", true, bufnr)
+		map("i", "<C-k>", function()
+			return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
+		end, "Previous completion item", true, bufnr)
 
-    map("i", "<C-k>", function()
-      return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
-    end, "Previous completion item", true, bufnr)
+		map("i", "<CR>", function()
+			return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>"
+		end, "Confirm completion", true, bufnr)
 
-    map("i", "<CR>", function()
-      return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>"
-    end, "Confirm completion", true, bufnr)
-
-    map("i", "<Tab>", function()
-      return vim.fn.pumvisible() == 1 and "<C-y>" or "<Tab>"
-    end, "Confirm completion", true, bufnr)
-  end
+		map("i", "<Tab>", function()
+			return vim.fn.pumvisible() == 1 and "<C-y>" or "<Tab>"
+		end, "Confirm completion", true, bufnr)
+	end,
 })

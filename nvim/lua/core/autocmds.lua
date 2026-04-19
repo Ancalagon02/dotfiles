@@ -1,12 +1,26 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup("MyCoreGroup", { clear = true })
 
+vim.treesitter.language.register("json", "jsonc")
+vim.treesitter.language.register("bash", "sh")
+
+vim.filetype.add({
+	pattern = {
+		[".*/hypr/.*%.conf"] = "hyprlang",
+		[".*/hyprland%.conf"] = "hyprlang",
+	},
+	extension = {
+		mdx = "markdown.mdx",
+	},
+})
+
 autocmd("TextYankPost", {
 	group = augroup,
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
+
 autocmd("LspAttach", {
 	group = augroup,
 	callback = function(ev)
