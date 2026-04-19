@@ -14,5 +14,8 @@ vim.lsp.enable({
 	"jsonls",
 	"stylua",
 	"markdown_oxide",
+  "taplo",
+  "gopls",
+  "clangd",
 })
 

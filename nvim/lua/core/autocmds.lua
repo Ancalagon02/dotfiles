@@ -11,6 +11,8 @@ vim.filetype.add({
 	},
 	extension = {
 		mdx = "markdown.mdx",
+		gowork = "gowork",
+		gotmpl = "gotmpl",
 	},
 })
 

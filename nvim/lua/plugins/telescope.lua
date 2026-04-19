@@ -1,5 +1,5 @@
-local telescope = require('telescope')
-local actions = require('telescope.actions')
+local telescope = require("telescope")
+local actions = require("telescope.actions")
 
 -- 2. Setup with your specific insert-mode mappings
 telescope.setup({
@@ -11,5 +11,10 @@ telescope.setup({
 			},
 		},
 	},
+	pickers = {
+		find_files = {
+			-- "hidden = true" will show hidden files
+			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+		},
+	},
 })
-

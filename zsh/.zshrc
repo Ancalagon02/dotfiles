@@ -15,4 +15,3 @@ alias hois='cd "/home/wesley/.local/share/Paradox Interactive/Hearts of Iron IV/
 source <(fzf --zsh)
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
-
