@@ -13,6 +13,8 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- 5. Syntax, highlighting and spelling
 vim.opt.termguicolors = true
+vim.opt.winborder = "rounded"
+vim.opt.pumborder = "rounded"
 
 -- 11. Messages and info
 vim.opt.signcolumn = "yes:1"
@@ -20,7 +22,7 @@ vim.opt.signcolumn = "yes:1"
 -- 13. Editing text
 vim.opt.undofile = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "fuzzy", "noinsert", "noselect", "popup", "menuone" }
+vim.opt.completeopt = { "fuzzy", "noinsert", "noselect", "popup", "menuone", "menu"}
 
 -- 14. Tabs and indenting
 vim.opt.tabstop = 4

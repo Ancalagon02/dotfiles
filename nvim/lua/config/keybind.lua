@@ -9,6 +9,8 @@ local function map(mode, lhs, rhs, desc, expr, bufnr)
   })
 end
 
+local smart_format = require("config.global").smart_format
+
 --- General Keymaps (Global) ---
 map("n", "<leader>to", ":split | terminal<CR>", "open terminal")
 map('t', '<esc>', '<C-\\><C-n>', "close terminal")
@@ -73,15 +75,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --- 2. MODIFICATION (LSP) ---
     map("n", "<leader>vn", vim.lsp.buf.rename, "Rename Symbol", false, bufnr)
     map({ "n", "v" }, "<leader>va", vim.lsp.buf.code_action, "Code Action", false, bufnr)
-    map("n", "<leader>vf", function() vim.lsp.buf.format({ async = true }) end, "Format Code", false, bufnr)
+    map("n", "<leader>vf", smart_format, "Format Code", false, bufnr)
 
     --- 3. DIAGNOSTICS (Core) ---
     map("n", "<leader>dd", vim.diagnostic.open_float, "Line Diagnostics (Float)", false, bufnr)
     map("n", "<leader>db", function() ts.diagnostics({ bufnr = 0 }) end, "File Diagnostics (List)", false, bufnr)
     -- Quick Jump Diagnostics
-    map("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true })
+    map("n", "<leader>dn", function()
+      vim.diagnostic.jump({ count = 1, float = true })
     end, "Next Diagnostic", false, bufnr)
-    map("n", "<leader>dp", function() vim.diagnostic.jump({ count = -1, float = true })
+    map("n", "<leader>dp", function()
+      vim.diagnostic.jump({ count = -1, float = true })
     end, "Previous Diagnostic", false, bufnr)
 
 
@@ -110,6 +114,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     map("i", "<CR>", function()
       return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>"
+    end, "Confirm completion", true, bufnr)
+
+    map("i", "<Tab>", function()
+      return vim.fn.pumvisible() == 1 and "<C-y>" or "<Tab>"
     end, "Confirm completion", true, bufnr)
   end
 })
