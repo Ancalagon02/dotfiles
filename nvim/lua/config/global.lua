@@ -1,29 +1,6 @@
 local M = {}
 
--- Define the command for Prettier-supported files
-local prettier_cmd = "prettier --stdin-filepath " .. vim.fn.expand("%:p")
-
--- 1. Configuration Table (The "Registry")
 local shell_formatters = {
-	-- Prettier Suite
-	javascript = prettier_cmd,
-	javascriptreact = prettier_cmd,
-	typescript = prettier_cmd,
-	typescriptreact = prettier_cmd,
-	json = prettier_cmd,
-	jsonc = prettier_cmd,
-	json5 = prettier_cmd,
-	html = prettier_cmd,
-	css = prettier_cmd,
-	scss = prettier_cmd,
-	less = prettier_cmd,
-	markdown = prettier_cmd,
-	["markdown.mdx"] = prettier_cmd,
-	yaml = prettier_cmd,
-	graphql = prettier_cmd,
-	vue = prettier_cmd,
-	handlebars = prettier_cmd,
-
 	sh = "shfmt -i 2 -sr -bn",
 	bash = "shfmt -i 2 -sr -bn",
 	zsh = "shfmt -i 2 -sr -bn",
