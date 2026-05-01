@@ -6,6 +6,7 @@ vim.lsp.config("bashls", {
 vim.lsp.enable({
 	"lua_ls",
 	"hyprls",
+  "biome",
 	"ruff",
 	"pyright",
 	"bashls",
@@ -17,6 +18,5 @@ vim.lsp.enable({
   "taplo",
   "gopls",
   "clangd",
-  "biome",
 })
 

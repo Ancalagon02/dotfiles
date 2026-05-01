@@ -10,8 +10,12 @@ alias games="cd /games"
 alias nas="cd /mnt/nas"
 alias devops="cd /devops/"
 alias course="cd /devops/Udemy/"
+alias grep="grep --color=always"
 alias hois='cd "/home/wesley/.local/share/Paradox Interactive/Hearts of Iron IV/save games"'
 
 source <(fzf --zsh)
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
